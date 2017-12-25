@@ -5,9 +5,6 @@
  */
 
 public class Player {
-	
-	
-
 	private String name;
 	private Player nextPlayer=null;
 	private Player prevPlayer=null;
