@@ -14,10 +14,7 @@
 	 * 
 */
 
-public class UnoCard{
-	
-	
-	
+public class UnoCard{	
 	// blue, green, red, yellow, wild
 	private String color;
 	private int number;
