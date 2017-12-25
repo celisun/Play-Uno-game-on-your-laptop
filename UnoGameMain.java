@@ -31,7 +31,6 @@ public class UnoGame {
 				 wl.enqueue(new Player(plist[j]));
 			 }
 		 
-
 		 // Start game. 
 		 // swap between player circle and wait list
 		 Player loser = start(playerCircle);
@@ -44,10 +43,8 @@ public class UnoGame {
 			 playerCircle.removePlayer(loser);
 			 System.out.println("\n\n" + newPlayer.name()+ " (from wait list) IN, " + loser.name() + " OUT. \n\n");
 			 System.out.println("=================> Ready For Next Round <============= \n\n");
-			 loser = start(playerCircle);
-			 
+			 loser = start(playerCircle);			 
 		 }
-
 	}
 	
 	
@@ -74,8 +71,7 @@ public class UnoGame {
 		 }
 		 System.out.println(p.name() + ": " + p.getHand().toString());
 		 p = p.getNextPlayer();
-	     }
-	 
+	     }	 
 	     deck.discardCard(deck.drawCard());
 		 System.out.println("\nSystem place down: " + deck.getLastDiscarded().toString() + "\n");
 		 System.out.println("Game Starts.\n");
@@ -86,8 +82,7 @@ public class UnoGame {
 		 //play in one direction (start with CW) until one player places out all his/her cards and wins.
 		 //cards that can be placed down will be suggested for user to pick in each round;
 		 //if no cards can be placed, one card will be automatically drawn from the deck and notify the user.
-		 //the the round finished, a winner and a loser will be obtained.
-		 
+		 //the the round finished, a winner and a loser will be obtained.		 
 		 Player winner = null;
 		 Player loser = null;
 		 Player pp = playerCircle.getFirstPlayer();
@@ -95,13 +90,10 @@ public class UnoGame {
 		 int most_num_cards = 0;    	// keep track of the most # cards a player in circle holds, used to identify loser easily
 		 int dir = 1 ;         	// direction of playing, 1 for next ->next, 0 for prev-> prev player.
 		 int r = 0; 			//record number of rounds
-		 
-		 
+		 		 
 		 while (true){
 			 System.out.println(pp.name() + "'s turn  ---------------------- " + "(" + pp.getHand().size() + ")");
-			 
-			 
-			 
+			 		 			 
 			 // Handle special card from LAST round
 			 // e.g. draw two card, wild draw four, skip card
 			 int draw2;
@@ -123,11 +115,8 @@ public class UnoGame {
 			 }
 			 System.out.println("");
 			 
-			 
-			
 			 // Current player pick to go.	 
-			 // generate list of all legal cards from hand that can be placed down
-				
+			 // generate list of all legal cards from hand that can be placed down			 
 			 String[] suggested = suggested(pp.getHand(), deck.getLastDiscarded()); 
 			 
 			 // no card to place down, 
@@ -148,8 +137,7 @@ public class UnoGame {
 					 System.out.println("	illegal. pick again (space sensitive)");
 					 card = console.nextLine();
 				 }
-				 
-				 
+				 				 
 				 System.out.println("	Placed Down: " + card);
 				 UnoCard discard = pp.removeFromHand(pp.getHand().indexOf(card));
 				 deck.discardCard(discard);
@@ -167,10 +155,7 @@ public class UnoGame {
 				 if (card.contains("reverse")){
 					 dir = dir==1? 0:1;
 					 System.out.println("\n\n					-- dir reversed -- \n\n");
-				 }	 
-				 
-				 
-				 				 
+				 }	 				 				 
 			 }	 
 			 pp = dir==1 ? pp.getNextPlayer(): pp.getPrevPlayer();
 			 r++;
@@ -193,8 +178,7 @@ public class UnoGame {
 		System.out.println("+ winner: " + winner.name());
 		System.out.println("+ loser:  " + loser.name() +" ("+most_num_cards+")");
 		
-		return loser; 
-		 
+		return loser; 		 
 	} 
 	
 	
@@ -217,10 +201,8 @@ public class UnoGame {
 				suggested[i] = card.getData().toString();
 				i++;
 			}
-			card = card.getNext();
-			
+			card = card.getNext();			
 		}
 		return Arrays.copyOfRange(suggested, 0, i);
-	}	
-	
+	}		
 }
