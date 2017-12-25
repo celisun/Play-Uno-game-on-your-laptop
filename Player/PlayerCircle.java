@@ -5,9 +5,6 @@
  */
 
 public class PlayerCircle {
-	
-	
-	
 	private int size = 0;
 	private Player head = null;		//head pointer to first player
 	
